@@ -19,7 +19,9 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install mkdocs-material
-      - run: sed -i "s|^site_url:.*|site_url: ${{ secrets.SITE_URL }}|" mkdocs.yml
+      - run: sed -i "s|^site_url:.*|site_url: ${SITE_URL}|" mkdocs.yml
+        env:
+          SITE_URL: ${{ secrets.SITE_URL }}
       - run: mkdocs build --site-dir _site_docs
       - uses: aws-actions/configure-aws-credentials@v4
         with:
