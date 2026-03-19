@@ -18,7 +18,7 @@ All error responses use a consistent JSON schema:
 | `403` | `Forbidden` | Missing or invalid API key |
 | `404` | `NotFound` | Object not found in catalog, or no element sets matching query |
 | `429` | `TooManyRequests` | Rate limit exceeded — see [Rate Limits](rate-limits.md) |
-| `500` | `InternalError` | Unexpected server error — if persistent, please [report it](https://github.com/orbital-data/docs/issues) |
+| `500` | `InternalError` | Unexpected server error — if persistent, please [report it](https://github.com/wwwdavid34/orbital-data-docs/issues) |
 
 ## Common scenarios
 

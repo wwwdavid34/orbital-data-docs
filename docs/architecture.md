@@ -38,4 +38,4 @@ graph LR
 
 ## Infrastructure as Code
 
-The entire stack is defined in AWS CDK (Python) and deployed across five stacks: Storage, Auth, Compute, API, and Ingest. The infrastructure code is in the [private API repository](https://github.com/orbital-data/api).
+The entire stack is defined in AWS CDK (Python) and deployed across five stacks: Storage, Auth, Compute, API, and Ingest. The infrastructure code is in the [private API repository](https://github.com/wwwdavid34/sat-api).

@@ -38,7 +38,7 @@ curl -H "X-Api-Key: YOUR_KEY" \
 
 Orbital Data API is free infrastructure for the space community, funded by donations. If you find it useful, consider supporting the project:
 
-- [GitHub Sponsors](https://github.com/sponsors/orbital-data)
+- [GitHub Sponsors](https://github.com/sponsors/wwwdavid34)
 - [Open Collective](https://opencollective.com/orbital-data)
 
 ## Get started

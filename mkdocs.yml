@@ -2,8 +2,8 @@ site_name: Orbital Data API
 site_url: https://docs.orbitaldata.dev
 site_description: Free, developer-friendly API for satellite orbital data (TLE/OMM)
 site_author: David Hsu
-repo_url: https://github.com/orbital-data/docs
-repo_name: orbital-data/docs
+repo_url: https://github.com/wwwdavid34/orbital-data-docs
+repo_name: wwwdavid34/orbital-data-docs
 
 theme:
   name: material
@@ -77,5 +77,5 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/orbital-data
+      link: https://github.com/wwwdavid34/orbital-data-docs
   generator: false

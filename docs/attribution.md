@@ -32,5 +32,5 @@ If you build an application or service that uses the Orbital Data API, we ask th
 
 The Orbital Data API is free community infrastructure. If it's useful to your work, consider supporting it:
 
-- [GitHub Sponsors](https://github.com/sponsors/orbital-data)
+- [GitHub Sponsors](https://github.com/sponsors/wwwdavid34)
 - [Open Collective](https://opencollective.com/orbital-data)
