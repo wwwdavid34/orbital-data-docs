@@ -1,7 +1,7 @@
-name: Deploy Docs (dev)
+name: Deploy Docs
 on:
   push:
-    branches: [development]
+    branches: [development, staging, main]
     paths: ['docs/**', 'mkdocs.yml']
   workflow_dispatch:
 
@@ -12,6 +12,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ${{ github.ref_name == 'main' && 'prod' || github.ref_name == 'staging' && 'staging' || 'dev' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
