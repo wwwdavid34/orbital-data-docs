@@ -1,0 +1,81 @@
+site_name: Orbital Data API
+site_url: https://docs.orbitaldata.dev
+site_description: Free, developer-friendly API for satellite orbital data (TLE/OMM)
+site_author: David Hsu
+repo_url: https://github.com/orbital-data/docs
+repo_name: orbital-data/docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Endpoints:
+      - Overview: endpoints/index.md
+      - Current GP: endpoints/current-gp.md
+      - Historical GP: endpoints/historical-gp.md
+      - Epoch Bulk: endpoints/epoch-bulk.md
+      - Catalog: endpoints/catalog.md
+      - Status: endpoints/status.md
+  - Response Formats: response-formats.md
+  - Rate Limits: rate-limits.md
+  - Errors: errors.md
+  - Data Sources: data-sources.md
+  - Architecture: architecture.md
+  - Attribution: attribution.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/orbital-data
+  generator: false
