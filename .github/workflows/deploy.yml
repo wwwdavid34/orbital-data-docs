@@ -1,22 +1,27 @@
-name: Deploy docs
-
+name: Deploy Docs (dev)
 on:
   push:
-    branches: [main]
+    branches: [development]
+    paths: ['docs/**', 'mkdocs.yml']
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  id-token: write
+  contents: read
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-
-      - run: pip install -r requirements.txt
-
-      - run: mkdocs gh-deploy --force
+          python-version: '3.12'
+      - run: pip install mkdocs-material
+      - run: mkdocs build --site-dir _site_docs
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.DOCS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+      - run: aws s3 sync _site_docs/ s3://${{ secrets.DOCS_BUCKET }}/ --delete
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/doc/*"
