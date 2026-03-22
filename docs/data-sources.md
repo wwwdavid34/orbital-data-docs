@@ -35,10 +35,11 @@ Metadata about each tracked object:
 
 | Metric | Value |
 |--------|-------|
-| Coverage period | 2001 to present |
-| Total element sets | ~170 million |
-| Tracked objects | ~50,000 active |
-| Update cadence | Daily (new GP records appended) |
+| Coverage period | 2004 to present |
+| Total element sets | ~167 million |
+| Cataloged objects | ~68,000 (SATCAT) |
+| Active satellites | ~27,000 (with current GP) |
+| Update cadence | Daily (GP history archived, current GP refreshed) |
 
 ## Data quality notes
 

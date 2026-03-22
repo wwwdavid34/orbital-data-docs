@@ -24,7 +24,7 @@ Returns the latest GP element set for a single object.
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  https://api.orbitaldata.dev/v1/gp/25544
+  https://orbit-dev.davidhsu.cc/api/v1/gp/25544
 ```
 
 ```json
@@ -105,7 +105,7 @@ Search for Starlink satellites:
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  "https://api.orbitaldata.dev/v1/gp?group=starlink&per_page=2"
+  "https://orbit-dev.davidhsu.cc/api/v1/gp?group=starlink&per_page=2"
 ```
 
 ```json
@@ -133,7 +133,7 @@ curl -H "X-Api-Key: YOUR_KEY" \
     "page": 1,
     "per_page": 2,
     "total_pages": 3211,
-    "next": "https://api.orbitaldata.dev/v1/gp?group=starlink&per_page=2&page=2",
+    "next": "https://orbit-dev.davidhsu.cc/api/v1/gp?group=starlink&per_page=2&page=2",
     "prev": null
   }
 }
@@ -143,12 +143,12 @@ Search by name:
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  "https://api.orbitaldata.dev/v1/gp?search=hubble"
+  "https://orbit-dev.davidhsu.cc/api/v1/gp?search=hubble"
 ```
 
 Multiple NORAD IDs:
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  "https://api.orbitaldata.dev/v1/gp?norad_ids=25544,43873,44506"
+  "https://orbit-dev.davidhsu.cc/api/v1/gp?norad_ids=25544,43873,44506"
 ```

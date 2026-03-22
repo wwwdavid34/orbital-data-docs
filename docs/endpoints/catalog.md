@@ -16,7 +16,7 @@ Returns catalog metadata for a single object.
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  https://api.orbitaldata.dev/v1/catalog/25544
+  https://orbit-dev.davidhsu.cc/api/v1/catalog/25544
 ```
 
 ```json
@@ -79,7 +79,7 @@ Search for active Chinese payloads:
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  "https://api.orbitaldata.dev/v1/catalog?owner=PRC&object_type=PAYLOAD&per_page=2"
+  "https://orbit-dev.davidhsu.cc/api/v1/catalog?owner=PRC&object_type=PAYLOAD&per_page=2"
 ```
 
 ```json
@@ -101,7 +101,7 @@ curl -H "X-Api-Key: YOUR_KEY" \
     "page": 1,
     "per_page": 2,
     "total_pages": 156,
-    "next": "https://api.orbitaldata.dev/v1/catalog?owner=PRC&object_type=PAYLOAD&per_page=2&page=2",
+    "next": "https://orbit-dev.davidhsu.cc/api/v1/catalog?owner=PRC&object_type=PAYLOAD&per_page=2&page=2",
     "prev": null
   }
 }

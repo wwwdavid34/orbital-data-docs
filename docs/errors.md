@@ -26,7 +26,7 @@ All error responses use a consistent JSON schema:
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  https://api.orbitaldata.dev/v1/gp/0
+  https://orbit-dev.davidhsu.cc/api/v1/gp/0
 ```
 
 ```json
@@ -41,7 +41,7 @@ curl -H "X-Api-Key: YOUR_KEY" \
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  https://api.orbitaldata.dev/v1/gp/999999999
+  https://orbit-dev.davidhsu.cc/api/v1/gp/999999999
 ```
 
 ```json
@@ -55,7 +55,7 @@ curl -H "X-Api-Key: YOUR_KEY" \
 ### Missing API key
 
 ```bash
-curl https://api.orbitaldata.dev/v1/gp/25544
+curl https://orbit-dev.davidhsu.cc/api/v1/gp/25544
 ```
 
 ```json

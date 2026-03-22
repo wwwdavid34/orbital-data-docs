@@ -19,7 +19,7 @@ Space data shouldn't be hard to get. Space-Track.org is the authoritative source
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  https://api.orbitaldata.dev/v1/gp/25544
+  https://orbit-dev.davidhsu.cc/api/v1/gp/25544
 ```
 
 ```json

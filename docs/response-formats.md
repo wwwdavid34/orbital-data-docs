@@ -22,14 +22,14 @@ You can request a format in two ways:
     ```bash
     curl -H "X-Api-Key: YOUR_KEY" \
          -H "Accept: text/plain" \
-         https://api.orbitaldata.dev/v1/gp/25544
+         https://orbit-dev.davidhsu.cc/api/v1/gp/25544
     ```
 
 === "Query parameter"
 
     ```bash
     curl -H "X-Api-Key: YOUR_KEY" \
-         "https://api.orbitaldata.dev/v1/gp/25544?format=tle"
+         "https://orbit-dev.davidhsu.cc/api/v1/gp/25544?format=tle"
     ```
 
 If both are specified, the `format` query parameter takes precedence.

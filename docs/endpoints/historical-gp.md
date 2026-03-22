@@ -1,6 +1,9 @@
 # Historical GP
 
-Historical element sets with time-range queries. Data goes back to 2001.
+Historical element sets with time-range queries. Data goes back to 2004.
+
+!!! info "Free tier access"
+    All users can browse the full historical archive. When using `start`/`end` date parameters, the query window is limited to 30 days per request. The `/nearest` and `/adjacent` endpoints have no date restrictions.
 
 ## Date formats
 
@@ -25,7 +28,7 @@ Returns all GP element sets for an object within a time range.
 | `norad_id` | path | integer | Yes | NORAD catalog number |
 | `start` | query | string | No | Start of time range |
 | `end` | query | string | No | End of time range |
-| `data_source` | query | string | No | `spacetrack`, `celestrak`, or `all` (default: `all`) |
+| `data_source` | query | string | No | `spacetrack` or `all` (default: `all`) |
 | `format` | query | string | No | Response format. Default: `json` |
 | `page` | query | integer | No | Page number (default: 1) |
 | `per_page` | query | integer | No | Results per page (1–500, default: 100) |
@@ -36,7 +39,7 @@ Get ISS element sets for January 2024:
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  "https://api.orbitaldata.dev/v1/gp/25544/history?start=2024-01-01T00:00:00Z&end=2024-02-01T00:00:00Z"
+  "https://orbit-dev.davidhsu.cc/api/v1/gp/25544/history?start=2024-01-01T00:00:00Z&end=2024-02-01T00:00:00Z"
 ```
 
 ```json
@@ -82,7 +85,7 @@ Returns the single element set closest in time to the specified epoch. Useful fo
 |-----------|----|------|----------|-------------|
 | `norad_id` | path | integer | Yes | NORAD catalog number |
 | `epoch` | query | string | Yes | Target epoch |
-| `data_source` | query | string | No | `spacetrack`, `celestrak`, or `all` (default: `all`) |
+| `data_source` | query | string | No | `spacetrack` or `all` (default: `all`) |
 | `format` | query | string | No | Response format. Default: `json` |
 
 ### Response headers
@@ -97,7 +100,7 @@ Find the nearest element set to a specific time:
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  "https://api.orbitaldata.dev/v1/gp/25544/nearest?epoch=2024-06-15T12:00:00Z"
+  "https://orbit-dev.davidhsu.cc/api/v1/gp/25544/nearest?epoch=2024-06-15T12:00:00Z"
 ```
 
 ```json
@@ -126,7 +129,9 @@ Returns the two element sets immediately before and after the specified epoch. U
 |-----------|----|------|----------|-------------|
 | `norad_id` | path | integer | Yes | NORAD catalog number |
 | `epoch` | query | string | Yes | Target epoch |
-| `format` | query | string | No | Response format. Default: `json` |
+
+!!! note
+    The `/adjacent` endpoint only supports JSON format (the nested before/after structure is not compatible with TLE, CSV, or XML).
 
 ### Example
 
@@ -134,7 +139,7 @@ Get bracketing element sets around a specific time:
 
 ```bash
 curl -H "X-Api-Key: YOUR_KEY" \
-  "https://api.orbitaldata.dev/v1/gp/25544/adjacent?epoch=2024-06-15T12:00:00Z"
+  "https://orbit-dev.davidhsu.cc/api/v1/gp/25544/adjacent?epoch=2024-06-15T12:00:00Z"
 ```
 
 ```json

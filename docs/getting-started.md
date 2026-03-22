@@ -2,15 +2,19 @@
 
 ## Get an API key
 
-!!! note "Coming soon"
-    Self-service API key registration is under development. In the meantime, request a key by emailing [fengchi.hsu@pm.me](mailto:fengchi.hsu@pm.me).
+1. Visit [orbit-dev.davidhsu.cc/account](https://orbit-dev.davidhsu.cc/account)
+2. Sign up with email + password or Google
+3. Verify your email
+4. Your API key is generated automatically
+
+Your key and usage stats are available on the [account dashboard](https://orbit-dev.davidhsu.cc/account).
 
 ## Base URL
 
 All requests go to:
 
 ```
-https://api.orbitaldata.dev/v1
+https://orbit-dev.davidhsu.cc/api/v1
 ```
 
 ## Authentication
@@ -21,8 +25,6 @@ Include your API key in every request using the `X-Api-Key` header:
 X-Api-Key: YOUR_API_KEY
 ```
 
-You can also pass it as a query parameter (`?api_key=YOUR_API_KEY`), but the header method is preferred.
-
 ## Your first request
 
 Get the current orbital data for the International Space Station (NORAD ID 25544):
@@ -31,7 +33,7 @@ Get the current orbital data for the International Space Station (NORAD ID 25544
 
     ```bash
     curl -H "X-Api-Key: YOUR_KEY" \
-      https://api.orbitaldata.dev/v1/gp/25544
+      https://orbit-dev.davidhsu.cc/api/v1/gp/25544
     ```
 
 === "Python"
@@ -40,7 +42,7 @@ Get the current orbital data for the International Space Station (NORAD ID 25544
     import requests
 
     response = requests.get(
-        "https://api.orbitaldata.dev/v1/gp/25544",
+        "https://orbit-dev.davidhsu.cc/api/v1/gp/25544",
         headers={"X-Api-Key": "YOUR_KEY"},
     )
     data = response.json()
@@ -51,7 +53,7 @@ Get the current orbital data for the International Space Station (NORAD ID 25544
 
     ```javascript
     const response = await fetch(
-      "https://api.orbitaldata.dev/v1/gp/25544",
+      "https://orbit-dev.davidhsu.cc/api/v1/gp/25544",
       { headers: { "X-Api-Key": "YOUR_KEY" } }
     );
     const data = await response.json();
@@ -101,8 +103,12 @@ Get the current orbital data for the International Space Station (NORAD ID 25544
 | `APOGEE_KM` / `PERIGEE_KM` | Highest / lowest altitude (derived) |
 | `DATA_SOURCE` | Where this record came from |
 
+## Browse without an API key
+
+You can explore satellite data without signing up using the [Satellite Catalog Explorer](https://orbit-dev.davidhsu.cc/explore/). Click any object to view its current orbital elements, and log in to access full historical data.
+
 ## Next steps
 
 - [Search and filter satellites](endpoints/current-gp.md) — name search, groups, orbit regime
-- [Query historical data](endpoints/historical-gp.md) — time-range queries back to 2001
+- [Query historical data](endpoints/historical-gp.md) — time-range queries back to 2004
 - [Choose a response format](response-formats.md) — TLE, XML, CSV, and more

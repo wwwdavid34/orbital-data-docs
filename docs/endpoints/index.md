@@ -1,8 +1,8 @@
 # Endpoints
 
-Base URL: `https://api.orbitaldata.dev/v1`
+Base URL: `https://orbit-dev.davidhsu.cc/api/v1`
 
-All endpoints require an API key via the `X-Api-Key` header, except `GET /status`.
+All endpoints require an API key via the `X-Api-Key` header, except `/status`, `/explore/*`, and `/feedback`.
 
 ## Current GP
 
@@ -26,6 +26,19 @@ All endpoints require an API key via the `X-Api-Key` header, except `GET /status
 |--------|------|-------------|
 | `GET` | [`/catalog/{norad_id}`](catalog.md#get-catalognorad_id) | Satellite metadata for one object |
 | `GET` | [`/catalog`](catalog.md#get-catalog) | Search satellite catalog |
+
+## Explorer (no auth required)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/explore/catalog` | Browse satellite catalog |
+| `GET` | `/explore/gp/{norad_id}` | Current GP + metadata for one object |
+
+## Feedback
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `POST` | `/feedback` | Submit feedback (Turnstile captcha required) |
 
 ## System
 

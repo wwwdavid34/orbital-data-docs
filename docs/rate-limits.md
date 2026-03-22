@@ -8,15 +8,29 @@ The API has a single free tier with the following limits:
 | Burst | 20 |
 | Monthly requests | 30,000 |
 
+## Per-endpoint throttle overrides
+
+Historical endpoints have lower rate limits to protect against abuse:
+
+| Endpoint | Rate limit |
+|----------|-----------|
+| `/gp/{id}/history` | 2 req/s |
+| `/gp/{id}/nearest` | 2 req/s |
+| `/gp/{id}/adjacent` | 2 req/s |
+| All other endpoints | 10 req/s (plan default) |
+
+## Pagination limit
+
+Maximum pagination offset is 10,000. Use filters to narrow results for large datasets.
+
 ## Rate limit headers
 
 Every response includes rate limit information:
 
 | Header | Description |
 |--------|-------------|
-| `X-RateLimit-Limit` | Maximum requests allowed per window |
-| `X-RateLimit-Remaining` | Requests remaining in current window |
-| `X-RateLimit-Reset` | UTC epoch seconds when the window resets |
+| `X-RateLimit-Limit` | Monthly quota |
+| `X-RateLimit-Reset` | UTC epoch seconds when the quota resets (start of next month) |
 
 ## Exceeding the limit
 
@@ -32,10 +46,8 @@ If you exceed the rate limit, you'll receive a `429 Too Many Requests` response:
 
 ## Best practices
 
-**Cache responses locally.** Current GP data is updated roughly once per day per satellite. There's no need to poll more frequently than every few hours for most use cases.
+**Cache responses locally.** Current GP data is updated once per day. There's no need to poll more frequently than every few hours for most use cases.
 
 **Use bulk endpoints.** Instead of requesting one satellite at a time in a loop, use `GET /gp` with filters (e.g., `?group=starlink`) to fetch many records in a single request.
 
-**Respect `X-RateLimit-Remaining`.** Check this header and back off before you hit zero. Implement exponential backoff on `429` responses.
-
-**Use `If-None-Match` / `ETag`.** The API returns `ETag` headers on responses. Send `If-None-Match` with the ETag value on subsequent requests — if the data hasn't changed, you'll get a `304 Not Modified` with no body, which doesn't count against your rate limit.
+**Respect `X-RateLimit-Limit`.** Implement exponential backoff on `429` responses.
